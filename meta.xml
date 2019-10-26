@@ -7,6 +7,9 @@
 	<file src="models/laepetrol1a.dff" />
 	<file src="models/laepetrol1a.col" />
 	
+	<file src="models/des_ntcafe.dff" />
+	<file src="models/des_ntcafe.col" />
+	
 	<script src="client.lua" type="client"/>
 	
 </meta>

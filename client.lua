@@ -8,6 +8,10 @@ engineReplaceModel(dff, 5409)
 col = engineLoadCOL("models/laepetrol1a.col")
 engineReplaceCOL(col, 5409)
 
+dff = engineLoadDFF("models/des_ntcafe.dff")
+engineReplaceModel(dff, 16012)
+col = engineLoadCOL("models/des_ntcafe.col")
+engineReplaceCOL(col, 16012)
 
 local just_remove = {
 	{ 1522, 65535, "Gen_doorSHOP3", 2105.919921, -1807.250000, 12.515600, 0.000000, 0.000000, 89.999992, 0.000000 },
@@ -18,8 +22,8 @@ local objects = {
 		
 	{ 5409, 5535, "laepetrol1a", 1918.849975, -1776.329956, 16.976600, 0.000000, 0.000000, 0.000000, 0.000000 },
 	
-	{ 12853, 13245, "sw_gas01", 666.710998, -565.132995, 17.335899, 0.000000, 0.000000, 0.000000, 0.000000 },
-	{ 12854, 65535, "sw_gas01int", 666.492004, -571.179992, 17.312500, 0.000000, 0.000000, 0.000000, 0.000000 },
+	{ 16012, 65535, "des_ntcafe", -264.671997, 2596.570068, 61.820301, 0.000000, 0.000000, 0.000000, 0.000000 },
+
 }
 
 -- [model] = {model, x,y,z, rx,ry,rz, scalex, scaley, doublesided}
@@ -42,6 +46,11 @@ local advObject = {
 		
 		{1561, 9.35,-1.8,-4.5, 0,0,90},
 	}, 
+	[16012] = {
+		{3061, 9.15,5.65,-0.08, 0,0,90},
+		{3061, 9.24,7.75,-0.08, 0,0,270},
+		{1984, 8,0,0, 0,0,90},
+	}
 	
 }
 
