@@ -1,0 +1,12 @@
+<meta>
+	<info name="OpenSA" version="1.0.0" type="script" author="alexaxel705" description="OpenSA"/>
+	
+	<file src="models/lae711block01.dff" />
+	<file src="models/lae711block01.col" />
+	
+	<file src="models/laepetrol1a.dff" />
+	<file src="models/laepetrol1a.col" />
+	
+	<script src="client.lua" type="client"/>
+	
+</meta>
