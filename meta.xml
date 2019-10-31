@@ -10,6 +10,12 @@
 	<file src="models/des_ntcafe.dff" />
 	<file src="models/des_ntcafe.col" />
 	
+	<file src="models/carlshou1_lae2.dff" />
+	<file src="models/carlshou1_lae2.col" />
+	
+	<file src="models/swburbhaus03.dff" />
+	<file src="models/swburbhaus03.col" />
+	
 	<script src="client.lua" type="client"/>
 	
 </meta>
