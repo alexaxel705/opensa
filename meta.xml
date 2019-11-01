@@ -13,8 +13,8 @@
 	<file src="models/carlshou1_lae2.dff" />
 	<file src="models/carlshou1_lae2.col" />
 	
-	<file src="models/swburbhaus03.dff" />
-	<file src="models/swburbhaus03.col" />
+	<file src="models/sw_lasershop.dff" />
+	<file src="models/sw_lasershop.col" />
 	
 	<script src="client.lua" type="client"/>
 	
