@@ -16,6 +16,9 @@
 	<file src="models/sw_lasershop.dff" />
 	<file src="models/sw_lasershop.col" />
 	
+	<file src="models/sw_block01a.dff" />
+	<file src="models/sw_block01a.col" />
+	
 	<script src="client.lua" type="client"/>
 	
 </meta>

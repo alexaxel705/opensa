@@ -23,6 +23,10 @@ engineReplaceModel(dff, 12944)
 col = engineLoadCOL("models/sw_lasershop.col")
 engineReplaceCOL(col, 12944)
 
+dff = engineLoadDFF("models/sw_block01a.dff")
+engineReplaceModel(dff, 12948)
+col = engineLoadCOL("models/sw_block01a.col")
+engineReplaceCOL(col, 12948)
 
 local just_remove = {
 	{ 1522, 65535, "Gen_doorSHOP3", 2105.919921, -1807.250000, 12.515600, 0.000000, 0.000000, 89.999992, 0.000000 },
@@ -31,6 +35,8 @@ local just_remove = {
 	
 	{ 17925, 65535, "carls_faux", 2493.840087, -1696.709960, 15.515600, 0.000000, 0.000000, 179.999984, 0.000000 },	
 	{ 17951, 65535, "cjgaragedoor", 2505.520019, -1690.989990, 14.328100, 0.000000, 0.000000, -89.999992, 0.000000 },
+	
+	{ 1522, 65535, "Gen_doorSHOP3", 2331.379882, 75.804702, 25.601600, 0.000000, 0.000000, -89.999992, 0.000000 },
 }
 
 
@@ -47,7 +53,8 @@ local objects = {
 	{ 17950, 17952, "cjsaveg", 2505.59, -1695.290039, 14.695300, 0.000000, 0.000000, 0.000000, 0.000000 },
 	
 	{ 12944, 13257, "sw_lasershop", 2310.419921, 14.265600, 25.476600, 0.000000, 0.000000, 0.000000, 0.000000 },
-
+	
+	{ 12948, 13261, "sw_block01a", 2337.800048, 71.460899, 24.492200, 0.000000, 0.000000, 0.000000, 0.000000 },
 }
 
 -- [model] = {model, x,y,z, rx,ry,rz, scalex, scaley, doublesided}
@@ -81,6 +88,10 @@ local advObject = {
 	[12944] = {
 		{2959, 6.45,-0.85,-0.33, 0,0,90},
 		{2959, -5.40,-0.75,-0.21, 0,0,90},
+	},
+	[12948] = {
+		{1522, -6.4, 2.82, 1.12, 0, 0, 90},
+
 	}
 }
 
@@ -107,7 +118,7 @@ local Doors = { -- offsets, inverse
 
 function CreateDoors(model, x,y,z, rx,ry,rz)
 	local Physics = createObject(1491, x,y,z, rx,ry,rz)
-	local Visual = createObject(model, x,y,z, rx,ry,rz)
+	local Visual = createObject(model, Vector3())
 	setElementCollisionsEnabled(Visual, false)
 	attachElements(Visual, Physics, Doors[model][1], Doors[model][2], Doors[model][3], Doors[model][4], Doors[model][5], Doors[model][6])
 	setElementAlpha(Physics, 0)
