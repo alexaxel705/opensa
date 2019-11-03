@@ -22,6 +22,9 @@
 	<file src="models/sw_shack02.dff" />
 	<file src="models/sw_shack02.col" />
 	
+	<file src="models/sw_bigburb_02.dff" />
+	<file src="models/sw_bigburb_02.col" />
+	
 	<script src="client.lua" type="client"/>
 	
 </meta>

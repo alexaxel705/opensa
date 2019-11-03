@@ -1,39 +1,20 @@
-﻿dff = engineLoadDFF("models/lae711block01.dff")
-engineReplaceModel(dff, 5418)
-col = engineLoadCOL("models/lae711block01.col")
-engineReplaceCOL(col, 5418)
+﻿local Meta = {
+	"lae711block01", 
+	"laepetrol1a",
+	"des_ntcafe",
+	"carlshou1_lae2",
+	"sw_lasershop",
+	"sw_block01a",
+	"sw_shack02",
+	"sw_bigburb_02",
+}
 
-dff = engineLoadDFF("models/laepetrol1a.dff")
-engineReplaceModel(dff, 5409)
-col = engineLoadCOL("models/laepetrol1a.col")
-engineReplaceCOL(col, 5409)
-
-dff = engineLoadDFF("models/des_ntcafe.dff")
-engineReplaceModel(dff, 16012)
-col = engineLoadCOL("models/des_ntcafe.col")
-engineReplaceCOL(col, 16012)
-
-dff = engineLoadDFF("models/carlshou1_lae2.dff")
-engineReplaceModel(dff, 17697)
-col = engineLoadCOL("models/carlshou1_lae2.col")
-engineReplaceCOL(col, 17697)
-
-dff = engineLoadDFF("models/sw_lasershop.dff")
-engineReplaceModel(dff, 12944)
-col = engineLoadCOL("models/sw_lasershop.col")
-engineReplaceCOL(col, 12944)
-
-dff = engineLoadDFF("models/sw_block01a.dff")
-engineReplaceModel(dff, 12948)
-col = engineLoadCOL("models/sw_block01a.col")
-engineReplaceCOL(col, 12948)
-
-
-dff = engineLoadDFF("models/sw_shack02.dff")
-engineReplaceModel(dff, 12991)
-col = engineLoadCOL("models/sw_shack02.col")
-engineReplaceCOL(col, 12991)
-
+for _,name in pairs(Meta) do
+	dff = engineLoadDFF("models/"..name..".dff")
+	engineReplaceModel(dff, engineGetModelIDFromName(name))
+	col = engineLoadCOL("models/"..name..".col")
+	engineReplaceCOL(col, engineGetModelIDFromName(name))
+end
 
 local just_remove = {
 	{ 1522, 65535, "Gen_doorSHOP3", 2105.919921, -1807.250000, 12.515600, 0.000000, 0.000000, 89.999992, 0.000000 },
@@ -63,8 +44,12 @@ local objects = {
 	
 	{ 12948, 13261, "sw_block01a", 2337.800048, 71.460899, 24.492200, 0.000000, 0.000000, 0.000000, 0.000000 },
 	
-	
 	{ 12991, 65535, "sw_shack02", 2161.629882, -102.476997, 1.750000, 0.000000, 0.000000, 31.333297, 0.000000 },
+	
+	{ 3316, 3327, "sw_bigburb_02", 2296.360107, -127.046997, 28.812500, 0.000000, 0.000000, -179.999984, 0.000000 },
+	{ 3316, 3327, "sw_bigburb_02", 2195.189941, -63.320301, 28.812500, 0.000000, 0.000000, 89.999992, 0.000000 },
+	{ 3316, 3327, "sw_bigburb_02", 2441.429931, -57.046901, 28.812500, 0.000000, 0.000000, -179.999984, 0.000000 },
+	{ 3316, 3327, "sw_bigburb_02", 769.218994, -558.867004, 18.671899, 0.000000, 0.000000, -179.999954, 0.000000 },
 }
 
 -- [model] = {model, x,y,z, rx,ry,rz, scalex, scaley, doublesided}
@@ -102,13 +87,15 @@ local advObject = {
 	[12948] = {
 		{1522, -6.4, 2.82, 1.12, 0, 0, 90},
 
-		{2439, -10, 0.6, 1.12, 0,0,180},
-		{2439, -9, 0.6, 1.12, 0,0,180},
-		{2439, -8, 0.6, 1.12, 0,0,180},
+		{2439, -10, 0, 1.12, 0,0,180},
+		{2439, -9, 0, 1.12, 0,0,180},
+		{2439, -8, 0, 1.12, 0,0,180},
 		
 		{2948, -13.63, 5.89, 0.6, 0,0,180},
 	}
-}
+}		
+
+
 
 local Doors = { -- offsets, inverse
 	[1498] = {0,0,0,0,0,0},
