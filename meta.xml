@@ -19,6 +19,9 @@
 	<file src="models/sw_block01a.dff" />
 	<file src="models/sw_block01a.col" />
 	
+	<file src="models/sw_shack02.dff" />
+	<file src="models/sw_shack02.col" />
+	
 	<script src="client.lua" type="client"/>
 	
 </meta>

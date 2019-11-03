@@ -28,6 +28,13 @@ engineReplaceModel(dff, 12948)
 col = engineLoadCOL("models/sw_block01a.col")
 engineReplaceCOL(col, 12948)
 
+
+dff = engineLoadDFF("models/sw_shack02.dff")
+engineReplaceModel(dff, 12991)
+col = engineLoadCOL("models/sw_shack02.col")
+engineReplaceCOL(col, 12991)
+
+
 local just_remove = {
 	{ 1522, 65535, "Gen_doorSHOP3", 2105.919921, -1807.250000, 12.515600, 0.000000, 0.000000, 89.999992, 0.000000 },
 	
@@ -55,6 +62,9 @@ local objects = {
 	{ 12944, 13257, "sw_lasershop", 2310.419921, 14.265600, 25.476600, 0.000000, 0.000000, 0.000000, 0.000000 },
 	
 	{ 12948, 13261, "sw_block01a", 2337.800048, 71.460899, 24.492200, 0.000000, 0.000000, 0.000000, 0.000000 },
+	
+	
+	{ 12991, 65535, "sw_shack02", 2161.629882, -102.476997, 1.750000, 0.000000, 0.000000, 31.333297, 0.000000 },
 }
 
 -- [model] = {model, x,y,z, rx,ry,rz, scalex, scaley, doublesided}
