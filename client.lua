@@ -256,8 +256,8 @@ function onClientColShapeHit(theElement, matchingDimension)
 		if(Colls[source]) then
 			local x,y,z = getElementPosition(localPlayer)
 			if(z-Colls[source][2] > 0 and z-Colls[source][2] < Colls[source][3]) then
-				local Parent = getElementParent(source)
-				if(Parent) then
+				if(Colls[source][1] == "House For Sale") then
+					local Parent = getElementParent(source)
 					local x,y,z = getElementPosition(Parent)
 					x,y,z = math.round(x), math.round(y), math.round(z)
 					local index = getElementInterior(Parent)..getElementDimension(Parent)..x..y..z
