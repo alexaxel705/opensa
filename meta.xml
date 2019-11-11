@@ -29,5 +29,6 @@
 	<file src="models/sw_bigburb_04.col" />
 	
 	<script src="client.lua" type="client"/>
+	<script src="server.lua" type="server"/>
 	
 </meta>

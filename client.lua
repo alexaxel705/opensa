@@ -205,6 +205,7 @@ function Start()
 						ind = ind+2
 					end
 					local col = createColPolygon(unpack(Coord))
+					setElementParent(col, obj)
 					Colls[col] = {dat[2], z+dat[3], dat[4]}
 				end
 			end
@@ -240,6 +241,14 @@ end
 
 
 
+function math.round(number, decimals, method)
+    decimals = decimals or 0
+    local factor = 10 ^ decimals
+    if (method == "ceil" or method == "floor") then return math[method](number * factor) / factor
+    else return tonumber(("%."..decimals.."f"):format(number)) end
+end
+
+
 
 function onClientColShapeHit(theElement, matchingDimension)
 	if(not matchingDimension) then return false end
@@ -247,12 +256,34 @@ function onClientColShapeHit(theElement, matchingDimension)
 		if(Colls[source]) then
 			local x,y,z = getElementPosition(localPlayer)
 			if(z-Colls[source][2] > 0 and z-Colls[source][2] < Colls[source][3]) then
-				triggerEvent("SetZoneDisplay", localPlayer, Colls[source][1])
+				local Parent = getElementParent(source)
+				if(Parent) then
+					local x,y,z = getElementPosition(Parent)
+					x,y,z = math.round(x), math.round(y), math.round(z)
+					local index = getElementInterior(Parent)..getElementDimension(Parent)..x..y..z
+					triggerServerEvent("getBuildingOwner", localPlayer, localPlayer, index)
+					bindKey("Enter", "down", BuyBuildings, index)
+				else
+					triggerEvent("SetZoneDisplay", localPlayer, Colls[source][1])
+				end
 			end
 		end
 	end
 end
 addEventHandler("onClientColShapeHit", root, onClientColShapeHit)
 
+
+function onClientColShapeLeave(thePlayer, matchingDimension)
+	if(not matchingDimension) then return false end
+	
+	if(thePlayer == localPlayer) then
+		unbindKey("Enter", "down", BuyBuildings)
+	end
+end
+addEventHandler("onClientColShapeLeave", root, onClientColShapeLeave)
+
+function BuyBuildings(theKey, state, index)
+	triggerServerEvent("buyBuilding", localPlayer, localPlayer, index)
+end
 
 
