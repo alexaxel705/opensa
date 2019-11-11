@@ -7,6 +7,8 @@
 	"sw_block01a",
 	"sw_shack02",
 	"sw_bigburb_02",
+	"sw_bigburb_04",
+	
 }
 
 for _,name in pairs(Meta) do
@@ -50,11 +52,21 @@ local objects = {
 	{ 3316, 3327, "sw_bigburb_02", 2195.189941, -63.320301, 28.812500, 0.000000, 0.000000, 89.999992, 0.000000 },
 	{ 3316, 3327, "sw_bigburb_02", 2441.429931, -57.046901, 28.812500, 0.000000, 0.000000, -179.999984, 0.000000 },
 	{ 3316, 3327, "sw_bigburb_02", 769.218994, -558.867004, 18.671899, 0.000000, 0.000000, -179.999954, 0.000000 },
+	
+	{ 3314, 3329, "sw_bigburb_04", 2194.760009, -92.359397, 26.468799, 0.000000, 0.000000, 89.999992, 0.000000 },
+	{ 3314, 3329, "sw_bigburb_04", 2275.469970, -127.484001, 26.468799, 0.000000, 0.000000, -179.999984, 0.000000 },
+	{ 3314, 3329, "sw_bigburb_04", 2370.469970, -57.476600, 26.468799, 0.000000, 0.000000, -179.999984, 0.000000 },
+	{ 3314, 3329, "sw_bigburb_04", 2267.379882, 0.851562, 26.468799, 0.000000, 0.000000, 0.000018, 0.000000 },
+	{ 3314, 3329, "sw_bigburb_04", 740.156005, -500.968994, 16.328100, 0.000000, 0.000000, 0.000018, 0.000000 },
+	{ 3314, 3329, "sw_bigburb_04", 815.156005, -500.968994, 16.328100, 0.000000, 0.000000, 0.000018, 0.000000 },
+
 }
 
+local Colls = {}
 -- [model] = {model, x,y,z, rx,ry,rz, scalex, scaley, doublesided}
 local advObject = {
 	[5418] = {
+		{"ColPolygon", "The Well Stacked Pizza Co.", -10, 10, {0,0, 10.7,-25.1, -7.4,-25.1, -7.4,6, 10.7,6}}, 
 		{1522, -6.82,-8.6,-6.84, 0,0,270},
 		
 		{2439, 7,-7,-6.84, 0,0,270},
@@ -68,11 +80,13 @@ local advObject = {
 		{3851, -7,-16.5,-5.7, 0,0,0},
 	}, 
 	[5409] = {
+		{"ColPolygon", "24/7", -10, 10, {0,0, 9.2,-10, -4.4,-10, -4.4,10, 9.2,10}}, 
 		{1984, 8,4,-4.5, 0,0,90},
 		
 		{1561, 9.35,-1.8,-4.5, 0,0,90},
 	}, 
 	[16012] = {
+		{"ColPolygon", "24/7", 0, 3, {0,0, 9,4, 10.3,4, 10.3,-4, -15,-4, -15,3.2, -16,3.2, -16,8.9, 9,8.9}}, 
 		{3061, 9.15,5.65,-0.08, 0,0,90},
 		{3061, 9.24,7.75,-0.08, 0,0,270},
 		{1984, 8,0,0, 0,0,90},
@@ -92,12 +106,26 @@ local advObject = {
 		{2439, -8, 0, 1.12, 0,0,180},
 		
 		{2948, -13.63, 5.89, 0.6, 0,0,180},
+	},
+	[3316] = {
+		{"ColPolygon", "House For Sale", -2, 4, {0,0, -6.7,-1.7, -6.7,15.2, 1.2,15.2, 1.2,5.2, 6,5.2, 6,-1.7}}, 
+		{3061, 2.1, -1.65, -2.18, 0, 0, 0},
+		{3061, 1.25, 11.1, -2.18, 0, 0, 90},
+		
+		{5340, -2.5,-1.6,-0.8,0,0,90}
+	}, 
+	[3314] = {
+		{"ColPolygon", "House For Sale", -2, 4, {0,0, -6.2,-7.9, -6.2,9, 1.75,9, 1.75,-1, 6.5,-1, 6.5,-7.9}}, 
+		{3061, 2.6, -7.9, 0.16, 0, 0, 0},
+		{3061, 1.75, 4.8, 0.16, 0, 0, 90},
+		
+		{3061, 9.09, 11.3, -0.43, 0, 0, 90},
 	}
 }		
 
 
 
-local Doors = { -- offsets, inverse
+local Doors = { -- offsets
 	[1498] = {0,0,0,0,0,0},
 	
 	[1522] = {0,0,0,0,0,0},
@@ -153,25 +181,52 @@ function Start()
 		setElementDoubleSided(obj, true)
 		if(advObject[v[1]]) then
 			for i, dat in pairs(advObject[v[1]]) do
-				local x, y, z = getPositionFromElementOffset(obj, dat[2], dat[3], dat[4])
-				if(Doors[dat[1]]) then
-					CreateDoors(dat[1], x, y, z, rx+dat[5], ry+dat[6], rz+dat[7])
-				else
-					local obj2 = createObject(dat[1], x, y, z, rx+dat[5], ry+dat[6], rz+dat[7])
-					
-					if(dat[8]) then
-						setObjectScale(obj2, dat[8], dat[9])
+				if(tonumber(dat[1])) then
+					local x, y, z = getPositionFromElementOffset(obj, dat[2], dat[3], dat[4])
+					if(Doors[dat[1]]) then
+						CreateDoors(dat[1], x, y, z, rx+dat[5], ry+dat[6], rz+dat[7])
+					else
+						local obj2 = createObject(dat[1], x, y, z, rx+dat[5], ry+dat[6], rz+dat[7])
+						
+						if(dat[8]) then
+							setObjectScale(obj2, dat[8], dat[9])
+						end
+						
+						if(dat[10]) then
+							setElementDoubleSided(obj2, true)
+						end
 					end
+				elseif(dat[1] == "ColPolygon") then
+					local Coord = table.copy(dat[5])
 					
-					if(dat[10]) then
-						setElementDoubleSided(obj2, true)
+					local ind = 1
+					for i = 1, #Coord/2 do
+						Coord[ind], Coord[ind+1] = getPositionFromElementOffset(obj, Coord[ind], Coord[ind+1], 0)
+						ind = ind+2
 					end
+					local col = createColPolygon(unpack(Coord))
+					Colls[col] = {dat[2], z+dat[3], dat[4]}
 				end
 			end
 		end
 	end
 end
 addEventHandler("onClientResourceStart", getResourceRootElement(), Start)
+
+
+
+
+function table.copy(t)
+	local t2 = {};
+	for k,v in pairs(t) do
+		if type(v) == "table" then
+			t2[k] = table.copy(v);
+		else
+			t2[k] = v;
+		end
+	end
+	return t2;
+end
 
 
 
@@ -182,3 +237,22 @@ function getPositionFromElementOffset(element,offX,offY,offZ)
     local z = offX * m[1][3] + offY * m[2][3] + offZ * m[3][3] + m[4][3] 
     return x, y, z
 end 
+
+
+
+
+function onClientColShapeHit(theElement, matchingDimension)
+	if(not matchingDimension) then return false end
+	if(theElement == localPlayer) then
+		if(Colls[source]) then
+			local x,y,z = getElementPosition(localPlayer)
+			if(z-Colls[source][2] > 0 and z-Colls[source][2] < Colls[source][3]) then
+				triggerEvent("SetZoneDisplay", localPlayer, Colls[source][1])
+			end
+		end
+	end
+end
+addEventHandler("onClientColShapeHit", root, onClientColShapeHit)
+
+
+
