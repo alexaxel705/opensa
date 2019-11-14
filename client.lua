@@ -6,8 +6,10 @@
 	"sw_lasershop",
 	"sw_block01a",
 	"sw_shack02",
+	"sw_bigburb_01",
 	"sw_bigburb_02",
 	"sw_bigburb_04",
+	"swburbhaus01",
 	
 }
 
@@ -59,11 +61,31 @@ local objects = {
 	{ 3314, 3329, "sw_bigburb_04", 2267.379882, 0.851562, 26.468799, 0.000000, 0.000000, 0.000018, 0.000000 },
 	{ 3314, 3329, "sw_bigburb_04", 740.156005, -500.968994, 16.328100, 0.000000, 0.000000, 0.000018, 0.000000 },
 	{ 3314, 3329, "sw_bigburb_04", 815.156005, -500.968994, 16.328100, 0.000000, 0.000000, 0.000018, 0.000000 },
+	
+	{ 3317, 3326, "sw_bigburb_01", 2321.360107, -127.046997, 28.812500, 0.000000, 0.000000, -179.999984, 0.000000 },
+	{ 3317, 3326, "sw_bigburb_01", 2391.429931, -57.046901, 28.812500, 0.000000, 0.000000, -179.999984, 0.000000 },
+	{ 3317, 3326, "sw_bigburb_01", 2246.409912, 0.421875, 28.812500, 0.000000, 0.000000, 0.000018, 0.000000 },
+	{ 3317, 3326, "sw_bigburb_01", 2258.909912, 170.421997, 28.812500, 0.000000, 0.000000, 0.000018, 0.000000 },
+	{ 3317, 3326, "sw_bigburb_01", 744.218994, -558.867004, 18.671899, 0.000000, 0.000000, -179.999954, 0.000000 },
+	{ 3317, 3326, "sw_bigburb_01", 769.203002, -501.398010, 18.671899, 0.000000, 0.000000, 0.000018, 0.000000 },
+	
+	{ 3307, 3321, "swburbhaus01", 2485.750000, -31.757799, 26.937500, 0.000000, 0.000000, 89.999992, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 2200.489990, 104.866996, 26.937500, 0.000000, 0.000000, 0.000009, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 2320.489990, 114.866996, 26.937500, 0.000000, 0.000000, 0.000009, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 2370.489990, 69.851600, 26.937500, 0.000000, 0.000000, 0.000000, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 2284.600097, 165.125000, 26.937500, 0.000000, 0.000000, -89.999992, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 2320.489990, 189.867004, 26.937500, 0.000000, 0.000000, 0.000009, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 2367.350097, 188.516006, 26.937500, 0.000000, 0.000000, -179.999984, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 2487.090087, 15.117197, 26.937500, 0.000000, 0.000000, -89.999992, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 2442.090087, 65.117202, 26.937500, 0.000000, 0.000000, -89.999992, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 2397.090087, 115.116996, 26.937500, 0.000000, 0.000000, -89.999992, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 256.242004, -120.023002, 2.031250, 0.000000, 0.000000, -179.999984, 0.000000 },
+	{ 3307, 3321, "swburbhaus01", 309.367004, -93.664100, 2.031250, 0.000000, 0.000000, 0.000009, 0.000000 },
 
 }
 
 local Colls = {}
--- [model] = {model, x,y,z, rx,ry,rz, scalex, scaley, doublesided}
+-- [model] = {model, x,y,z, rx,ry,rz}
 local advObject = {
 	[5418] = {
 		{"ColPolygon", "The Well Stacked Pizza Co.", -10, 10, {0,0, 10.7,-25.1, -7.4,-25.1, -7.4,6, 10.7,6}}, 
@@ -106,21 +128,44 @@ local advObject = {
 		{2439, -8, 0, 1.12, 0,0,180},
 		
 		{2948, -13.63, 5.89, 0.6, 0,0,180},
+	},		
+	[3307] = {
+		{"ColPolygon", "House For Sale", -2, 4, {0,0, -3,-9.3, -3,3.35, 3,3.35, 3,-9.3}}, 
+		{"ColPolygon", "Garage", -2, 4, {0,0, -3,3.35, -3,11.7, 10,11.7, 10,3.35}},
+		{9093, 4.9, 7.45, 1.2, 0, 0, 180}, 
+		{3061, 3.01, 0.75, 0.18, 0, 0, 90},
+		{3061, -2.98, 0.25, 0.1, 0, 0, 90},
+		{3061, -2.89, 2.35, 0.1, 0, 0, 270},
+
+	}, 
+	[3314] = {
+		{"ColPolygon", "House For Sale", -2, 4, {0,0, -6.2,-7.9, -6.2,9, 1.75,9, 1.75,-1, 6.5,-1, 6.5,-7.9}}, 
+		{"ColPolygon", "Garage", -2, 4, {0,0, 15,5, 15,17.2, 9.2,17.2, 9.2,5}}, 
+		{3061, 2.6, -7.9, 0.16, 0, 0, 0}, 
+		{3061, 1.75, 4.8, 0.16, 0, 0, 90}, 
+		
+		{3061, 9.09, 11.3, -0.43, 0, 0, 90}, 
+		
+		{9823, 12.2, 9.5, 1.2, 0, 0, 90}, 
 	},
 	[3316] = {
 		{"ColPolygon", "House For Sale", -2, 4, {0,0, -6.7,-1.7, -6.7,15.2, 1.2,15.2, 1.2,5.2, 6,5.2, 6,-1.7}}, 
+		{"ColPolygon", "Garage", -2, 4, {0,0, -6.7,-6.7, -6.7,15.2, 1.2,15.2, 1.2,-6.7}}, 
 		{3061, 2.1, -1.65, -2.18, 0, 0, 0},
 		{3061, 1.25, 11.1, -2.18, 0, 0, 90},
 		
 		{5340, -2.5,-1.6,-0.8,0,0,90}
+	}, 	
+	[3317] = {
+		{"ColPolygon", "House For Sale", -2, 4, {0,0, -10.3,-1.7, -10.3,15.2, -2.3,15.2, -2.3,5.2, 11,5.2, 11,-1.7}}, 
+		{"ColPolygon", "Garage", -2, 4, {0,0, -10.3,-6.7, -10.3,15.2, -2.3,15.2, -2.3,-6.7}}, 
+		{3061, -2.3, 11.1, -2.18, 0, 0, 90},		
+		{3061, 7, -1.65, -2.18, 0, 0, 0},	
+		{3061, -1.4, -1.65, -2.18, 0, 0, 0},
+		{5340, -6.3,-1.6,-0.8,0,0,90}
+
 	}, 
-	[3314] = {
-		{"ColPolygon", "House For Sale", -2, 4, {0,0, -6.2,-7.9, -6.2,9, 1.75,9, 1.75,-1, 6.5,-1, 6.5,-7.9}}, 
-		{3061, 2.6, -7.9, 0.16, 0, 0, 0},
-		{3061, 1.75, 4.8, 0.16, 0, 0, 90},
-		
-		{3061, 9.09, 11.3, -0.43, 0, 0, 90},
-	}
+
 }		
 
 
@@ -186,15 +231,9 @@ function Start()
 					if(Doors[dat[1]]) then
 						CreateDoors(dat[1], x, y, z, rx+dat[5], ry+dat[6], rz+dat[7])
 					else
-						local obj2 = createObject(dat[1], x, y, z, rx+dat[5], ry+dat[6], rz+dat[7])
+						local object = createObject(dat[1], x, y, z, rx+dat[5], ry+dat[6], rz+dat[7])
 						
-						if(dat[8]) then
-							setObjectScale(obj2, dat[8], dat[9])
-						end
-						
-						if(dat[10]) then
-							setElementDoubleSided(obj2, true)
-						end
+						setElementParent(object, obj)
 					end
 				elseif(dat[1] == "ColPolygon") then
 					local Coord = table.copy(dat[5])
@@ -205,6 +244,7 @@ function Start()
 						ind = ind+2
 					end
 					local col = createColPolygon(unpack(Coord))
+					setElementParent(col, obj)
 					Colls[col] = {dat[2], z+dat[3], dat[4]}
 				end
 			end
@@ -240,19 +280,92 @@ end
 
 
 
+function math.round(number, decimals, method)
+    decimals = decimals or 0
+    local factor = 10 ^ decimals
+    if (method == "ceil" or method == "floor") then return math[method](number * factor) / factor
+    else return tonumber(("%."..decimals.."f"):format(number)) end
+end
+
+
+local GateSource = false 
+local Gates = {
+	[9823] = {3,0,1.7,0,90,0}, 
+	[5340] = {3,0,1.7,0,90,0}, 
+	[9093] = {3,0,1.7,0,90,0}, 
+}
+
+
+function CloseGate(gate)
+	setElementPosition(gate, GateSource[1],GateSource[2],GateSource[3])
+	setElementRotation(gate, GateSource[4],GateSource[5],GateSource[6])
+end
+
 
 function onClientColShapeHit(theElement, matchingDimension)
 	if(not matchingDimension) then return false end
+
 	if(theElement == localPlayer) then
 		if(Colls[source]) then
 			local x,y,z = getElementPosition(localPlayer)
 			if(z-Colls[source][2] > 0 and z-Colls[source][2] < Colls[source][3]) then
-				triggerEvent("SetZoneDisplay", localPlayer, Colls[source][1])
+				if(Colls[source][1] == "House For Sale") then
+					local Parent = getElementParent(source)
+					local x,y,z = getElementPosition(Parent)
+					x,y,z = math.round(x), math.round(y), math.round(z)
+					local index = getElementInterior(Parent)..getElementDimension(Parent)..x..y..z
+					triggerServerEvent("getBuildingOwner", localPlayer, localPlayer, index)
+					bindKey("Enter", "down", BuyBuildings, index)
+				elseif(Colls[source][1] == "Garage") then
+					local Parent = getElementParent(source) 
+					local x,y,z = getElementPosition(Parent)
+						for i, v in pairs(getElementChildren(Parent)) do
+						if(Gates[getElementModel(v)]) then	
+							local x,y,z = getElementPosition(v)
+							local rx,ry,rz = getElementRotation(v)
+							GateSource = {x,y,z, rx,ry,rz}
+
+							x,y,z = getPositionFromElementOffset(v, Gates[getElementModel(v)][1],Gates[getElementModel(v)][2],Gates[getElementModel(v)][3])
+
+							setElementPosition(v, x,y,z)
+							setElementRotation(v, rx+Gates[getElementModel(v)][4],ry+Gates[getElementModel(v)][5],rz+Gates[getElementModel(v)][6])
+						end
+					end
+				else
+					triggerEvent("SetZoneDisplay", localPlayer, Colls[source][1])
+				end
 			end
 		end
 	end
 end
 addEventHandler("onClientColShapeHit", root, onClientColShapeHit)
 
+
+
+
+
+
+function onClientColShapeLeave(theElement, matchingDimension)
+	if(not matchingDimension) then return false end
+
+	if(theElement == localPlayer) then
+		if(Colls[source][1] == "House For Sale") then
+			unbindKey("Enter", "down", BuyBuildings)
+		elseif(Colls[source][1] == "Garage") then
+			local Parent = getElementParent(source) 
+			local x,y,z = getElementPosition(Parent)
+			for i, v in pairs(getElementChildren(Parent)) do
+				if(Gates[getElementModel(v)]) then
+					CloseGate(v)
+				end
+			end
+		end
+	end
+end
+addEventHandler("onClientColShapeLeave", root, onClientColShapeLeave)
+
+function BuyBuildings(theKey, state, index)
+	triggerServerEvent("buyBuilding", localPlayer, localPlayer, index)
+end
 
 

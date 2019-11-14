@@ -22,12 +22,19 @@
 	<file src="models/sw_shack02.dff" />
 	<file src="models/sw_shack02.col" />
 	
+	<file src="models/sw_bigburb_01.dff" />
+	<file src="models/sw_bigburb_01.col" />
+	
 	<file src="models/sw_bigburb_02.dff" />
 	<file src="models/sw_bigburb_02.col" />
 	
 	<file src="models/sw_bigburb_04.dff" />
 	<file src="models/sw_bigburb_04.col" />
 	
+	<file src="models/swburbhaus01.dff" />
+	<file src="models/swburbhaus01.col" />
+	
 	<script src="client.lua" type="client"/>
+	<script src="server.lua" type="server"/>
 	
 </meta>
