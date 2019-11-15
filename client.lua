@@ -208,6 +208,8 @@ local Doors = { -- offsets
 	
 	[3061] = {0,0,1.3,0,0,270},
 	
+	[2946] = {0,0,0,0,0,270},
+	
 }
 
 
@@ -224,6 +226,12 @@ function CreateDoors(model, x,y,z, rx,ry,rz)
 end
 CreateDoors(2947, 2322.845, 8.304, 25.483, 0,0,270)
 CreateDoors(2947, 2316.233, 0.712, 25.742, 0,0,180)
+
+
+CreateDoors(2946, 2304.257, -17.744, 25.742, 0,0,90)
+CreateDoors(2946, 2304.257, -14.583, 25.742, 0,0,270)
+
+
 
 
 function Start()
