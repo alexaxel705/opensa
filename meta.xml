@@ -34,6 +34,9 @@
 	<file src="models/swburbhaus01.dff" />
 	<file src="models/swburbhaus01.col" />
 	
+	<file src="models/swburbhaus03.dff" />
+	<file src="models/swburbhaus03.col" />
+	
 	<script src="client.lua" type="client"/>
 	<script src="server.lua" type="server"/>
 	
