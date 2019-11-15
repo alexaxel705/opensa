@@ -37,6 +37,9 @@
 	<file src="models/swburbhaus03.dff" />
 	<file src="models/swburbhaus03.col" />
 	
+	<file src="models/sw_bigburb_03.dff" />
+	<file src="models/sw_bigburb_03.col" />
+	
 	<file src="models/laeexaminerbuild1.dff" />
 	<file src="models/laeexaminerbuild1.col" />
 	
