@@ -43,6 +43,9 @@
 	<file src="models/laeexaminerbuild1.dff" />
 	<file src="models/laeexaminerbuild1.col" />
 	
+	<file src="models/ganghous05_LAx.dff" />
+	<file src="models/ganghous05_LAx.col" />
+	
 	<script src="client.lua" type="client"/>
 	<script src="server.lua" type="server"/>
 	
