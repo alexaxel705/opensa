@@ -1,6 +1,18 @@
 <meta>
 	<info name="OpenSA" version="1.0.0" type="script" author="alexaxel705" description="OpenSA"/>
 	
+	<file src="models/tcehilouse02.dff" />
+	<file src="models/tcehilouse02.col"  />
+	
+	<file src="models/des_ruin2_.dff" />
+	<file src="models/des_ruin2_.col"  />
+	
+	<file src="models/conhoos1.dff" />
+	<file src="models/conhoos1.col"  />
+	
+	<file src="models/conhoos2.dff" />
+	<file src="models/conhoos2.col" />
+	
 	<file src="models/lae711block01.dff" />
 	<file src="models/lae711block01.col" />
 	

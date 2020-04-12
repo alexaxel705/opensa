@@ -13,11 +13,11 @@ function getBuildingOwner(thePlayer, index)
 	if(node) then
 		local Owner = xmlNodeGetValue(node)
 		if(Owner == getPlayerName(thePlayer)) then
-			triggerClientEvent(thePlayer, "ToolTip", thePlayer, "Нажми #A0A0A0Enter #FFFFFFчтобы продать дом")
+			triggerClientEvent(thePlayer, "ToolTip", thePlayer, "Нажми #A0A0A0Enter #FFFFFFчтобы сохраниться\nНажми #A0A0A0TAB #FFFFFFчтобы продать дом")
 		end
 		triggerClientEvent(thePlayer, "SetZoneDisplay", thePlayer, Owner.." house")
 	else
-		triggerClientEvent(thePlayer, "ToolTip", thePlayer, "Нажми #A0A0A0Enter #FFFFFFчтобы купить дом")
+		triggerClientEvent(thePlayer, "ToolTip", thePlayer, "Нажми #A0A0A0TAB #FFFFFFчтобы купить дом")
 		triggerClientEvent(thePlayer, "SetZoneDisplay", thePlayer, "House For Sale")
 	end
 end
@@ -52,7 +52,6 @@ function OpenGarage(thePlayer, index, obj)
 		local Owner = xmlNodeGetValue(node)
 		if(Owner == getPlayerName(thePlayer)) then
 			outputConsole("Okidoki")
-
 		end
 	end
 end
